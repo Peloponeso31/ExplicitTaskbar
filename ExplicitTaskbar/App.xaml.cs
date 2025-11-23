@@ -33,7 +33,7 @@ public partial class App : Application
 
     public new static App Current => (App)Application.Current;
 
-    private static IServiceProvider ConfigureServices()
+    private static ServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
         services.AddSingleton<ITaskbarService, TaskbarService>();;
@@ -61,10 +61,10 @@ public partial class App : Application
 
     protected override void OnStartup(StartupEventArgs e)
     {
-        base.OnStartup(e);
+        var tray = Services.GetRequiredService<Tray>();
         SetHooks();
         TaskbarService.HideAllTaskbars();
-        var tray = Services.GetRequiredService<Tray>();
+        base.OnStartup(e);
     }
 
     protected override void OnExit(ExitEventArgs e)
