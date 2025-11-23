@@ -7,7 +7,7 @@ namespace ExplicitTaskbar;
 
 public partial class TrayViewModel : ObservableObject
 {
-    private string _aboutUrl = "https://tanil.site";
+    private string _aboutUrl = "https://github.com/Peloponeso31/ExplicitTaskbar";
     
     [RelayCommand]
     private void OpenAbout()

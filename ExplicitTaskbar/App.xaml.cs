@@ -1,16 +1,8 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.Windows;
+﻿using System.Windows;
 using ExplicitTaskbar.Services.Taskbar;
 using Microsoft.Extensions.DependencyInjection;
 using Wpf.Ui.Appearance;
 using System.Windows.Automation;
-using System.Windows.Controls;
-using System.Windows.Interop;
-using System.Windows.Media.Imaging;
-using Windows.Win32;
-using Windows.Win32.Foundation;
-using Windows.Win32.UI.WindowsAndMessaging;
 using ExplicitTaskbar.Actions;
 using ExplicitTaskbar.Services.Hooks;
 
@@ -24,7 +16,6 @@ public partial class App : Application
     public IServiceProvider Services { get; }
     private static readonly ITaskbarService TaskbarService = App.Current.Services.GetService<ITaskbarService>();
     private static readonly IEnumerable<IActionHook> Hooks = App.Current.Services.GetServices<IActionHook>();
-    //private static readonly INotifyIconService NotifyIconService = App.Current.Services.GetService<INotifyIconService>();
 
     public App()
     {
