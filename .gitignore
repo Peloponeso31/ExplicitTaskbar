@@ -1,0 +1,100 @@
+############################
+# JetBrains Rider
+############################
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# Rider system dirs
+/.idea/
+/.idea/*
+
+############################
+# Build outputs
+############################
+bin/
+obj/
+out/
+
+# Publish output
+*.PublishSettings
+**/publish/
+**/PublishProfiles/
+
+############################
+# Visual Studio / MSBuild
+############################
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# Cache
+.vs/
+*.cache
+*.dbmdl
+
+# Logs
+*.tlog
+*.log
+
+############################
+# .NET Core
+############################
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Debug / Release
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+ARM/
+ARM64/
+
+# Coverage / profiling
+coverage/
+*.coverage
+*.coveragexml
+
+############################
+# Temporary files
+############################
+*.tmp
+*.temp
+*.bak
+*.old
+
+############################
+# WPF-related ignores
+############################
+# Auto-generated
+*.g.cs
+*.g.i.cs
+*.i.cs
+
+# Build artifacts
+GeneratedInternalTypeHelper.g.cs
+
+############################
+# OS
+############################
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# macOS (if syncing)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+############################
+# Misc
+############################
+*.local
+.env

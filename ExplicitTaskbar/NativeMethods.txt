@@ -1,0 +1,11 @@
+﻿FindWindow
+FindWindowEx
+ShowWindow
+SetForegroundWindow
+IsWindowVisible
+
+SetWindowsHookEx
+CallNextHookEx
+UnhookWindowsHookEx
+KBDLLHOOKSTRUCT
+VIRTUAL_KEY
