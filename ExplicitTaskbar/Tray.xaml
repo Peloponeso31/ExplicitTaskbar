@@ -7,12 +7,8 @@
         xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
-        Title="Tray" Height="450" Width="800"
+        Height="450" Width="800"
         Visibility="Hidden">
-    <Window.DataContext>
-        <local:TrayViewModel/>
-    </Window.DataContext>
-        
     <tb:TaskbarIcon x:Name="MyNotifyIcon" 
                     IconSource="/Assets/icon.ico"
                     ToolTipText="Explicit Taskbar">

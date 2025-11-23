@@ -40,6 +40,8 @@ public partial class App : Application
         services.AddSingleton<IActionHook, KeyDownActionHook>();
         services.AddSingleton<IActionHook, WinKeyActionHook>();
         services.AddSingleton<IActionHook, MouseClickUpActionHook>();
+        services.AddSingleton<TrayViewModel>();
+        services.AddSingleton<Tray>();
 
         return services.BuildServiceProvider();
     }
@@ -62,14 +64,13 @@ public partial class App : Application
         base.OnStartup(e);
         SetHooks();
         TaskbarService.HideAllTaskbars();
-        
+        var tray = Services.GetRequiredService<Tray>();
     }
 
     protected override void OnExit(ExitEventArgs e)
     {
         foreach (var hook in Hooks) hook.Dispose();
         TaskbarService.ShowAllTaskbars();
-        
         base.OnExit(e);
     }
 }
