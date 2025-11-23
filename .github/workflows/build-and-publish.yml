@@ -1,0 +1,48 @@
+# Vibecoded:
+
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore CustomWindows.sln
+
+      - name: Publish Single File
+        run: >
+          dotnet publish ExplicitTaskbar/ExplicitTaskbar.csproj
+          -c Release
+          -r win-x64
+          --self-contained true
+          /p:PublishSingleFile=true
+          /p:IncludeNativeLibrariesForSelfExtract=true
+          /p:PublishTrimmed=false
+          -o publish
+
+      - name: Archive EXE
+        run: |
+          dir publish
+          ren publish\ExplicitTaskbar.exe ExplicitTaskbar.exe
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ExplicitTaskbar.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
